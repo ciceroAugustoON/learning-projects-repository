@@ -3,6 +3,8 @@ package chess;
 import boardgame.Board;
 import boardgame.Piece;
 import boardgame.Position;
+import chess.pieces.King;
+import chess.pieces.Rook;
 
 public class ChessMatch {
 
@@ -44,6 +46,9 @@ public class ChessMatch {
 		if (!board.thereIsAPiece(position)) {
 			throw new ChessException("There is no piece on source position");
 		}
+        if (!board.piece(position).isThereAnyPossibleMove()) {
+            throw new ChessException("This piece has no moves avaliable!");
+        }
 	}
 
     private void placeNewPiece(char column, int row, ChessPiece piece) {
