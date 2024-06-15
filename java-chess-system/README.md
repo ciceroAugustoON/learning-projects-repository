@@ -1,18 +1,3 @@
-## Getting Started
+## Java Chess System CLI
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Um projeto baseado no projeto do [https://github.com/acenelio/chess-system-java](Nelio Alves) no [https://www.udemy.com/share/1013hw3@Lb1X-MkHRad24tE6xnfV-YtNi6YYMhE4KrH0-o7IJI-xD5SPk_MRkl8CGX7vclWsTg==/](Curso de Java na Udemy). O sistema é um simples jogo de xadrez que roda através de um terminal.
