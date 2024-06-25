@@ -1,6 +1,11 @@
 package program;
 
 import java.util.Scanner;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import boardgame.Piece;
+
 import java.util.InputMismatchException;
 
 import chess.ChessMatch;
@@ -28,8 +33,10 @@ public class UI {
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
-    public static void printMatch(ChessMatch match) {
+    public static void printMatch(ChessMatch match, List<ChessPiece> capturedPieces) {
         printBoard(match.getPieces());
+        System.out.println();
+        printCapturedPieces(capturedPieces);
         System.out.println();
         System.out.println("Turn: " + match.getTurn());
         System.out.println("Waiting Player: " + match.getCurrentPlayer());
@@ -85,6 +92,14 @@ public class UI {
             }
         }
         System.out.print(" ");
+    }
+
+    private static void printCapturedPieces(List<ChessPiece> capturedPieces) {
+        List<ChessPiece> white = capturedPieces.stream().filter(x -> x.getColor() == Color.WHITE).collect(Collectors.toList());
+        List<ChessPiece> black = capturedPieces.stream().filter(x -> x.getColor() == Color.BLACK).collect(Collectors.toList());
+        System.out.println("White: " + white);
+        System.out.print(ANSI_YELLOW);
+        System.out.println("Black: " + black + ANSI_RESET);
     }
 
     // https://stackoverflow.com/questions/2979383/java-clear-the-console
