@@ -1,10 +1,10 @@
 CREATE TABLE department(
-  Id int(11) PRIMARY KEY,
+  Id INTEGER PRIMARY KEY autoincrement,
   Name varchar(60) DEFAULT NULL
 );
 
 CREATE TABLE seller(
-  Id int(11) PRIMARY KEY,
+  Id INTEGER PRIMARY KEY autoincrement,
   Name varchar(60) NOT NULL,
   Email varchar(100) NOT NULL,
   BirthDate datetime NOT NULL,
