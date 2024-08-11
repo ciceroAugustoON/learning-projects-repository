@@ -2,6 +2,7 @@ package application;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
@@ -11,6 +12,8 @@ import model.entities.Seller;
 public class Program {
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
 		SellerDao sellerDao = DaoFactory.createSellerDao();
 		System.out.println("=== TEST 1: SellerDao.findById() ===");
 		Seller seller = sellerDao.findById(3);
@@ -22,12 +25,18 @@ public class Program {
 		sellers = sellerDao.findAll();
 		sellers.stream().forEach(System.out::println);
 		System.out.println("\n=== TEST 4: SellerDao.insert() ===");
-		// sellerDao.insert(new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.00, new Department(1, null)));
+		sellerDao.insert(new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.00, new Department(1, null)));
 		sellers = sellerDao.findAll();
 		sellers.stream().forEach(System.out::println);
 		System.out.println("\n=== TEST 5: SellerDao.update() ===");
 		seller.setBaseSalary(3200.00);
 		sellerDao.update(seller);
+		sellers = sellerDao.findAll();
+		sellers.stream().forEach(System.out::println);
+		System.out.println("\n=== TEST 6: SellerDao.deleteById() ===");
+		System.out.print("Select a seller by Id: ");
+		int id = sc.nextInt();
+		sellerDao.deleteById(id);
 		sellers = sellerDao.findAll();
 		sellers.stream().forEach(System.out::println);
 	}
